@@ -24,13 +24,13 @@ model User {
 model Profile {
   id Int @id @default(autoincrement())
   name String @unique
-  createEditUser Boolean?
-  editUserPassword Boolean?
-  viewUserDetails Boolean?
-  listAllUsers Boolean?
-  listAllProfiles Boolean?
-  createEditProfile Boolean?
-  viewProfileDetails Boolean?
+  createEditUser Boolean? @default(false)
+  editUserPassword Boolean? @default(false)
+  viewUserDetails Boolean? @default(false)
+  listAllUsers Boolean? @default(false)
+  listAllProfiles Boolean? @default(false)
+  createEditProfile Boolean? @default(false)
+  viewProfileDetails Boolean? @default(false)
 
   users User[]
 
