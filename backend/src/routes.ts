@@ -15,3 +15,6 @@ routes.get('/profiles/:id', new ProfileController().findOne);
  * users routes
  */
 routes.post('/users', new UserController().create);
+routes.get('/users', new UserController().findAll);
+routes.get('/users/:id', new UserController().findOne);
+routes.patch('/users/:id', new UserController().updatePassword);
