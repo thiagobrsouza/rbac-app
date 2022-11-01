@@ -1,5 +1,6 @@
 import { Router } from "express";
 import { ProfileController } from "./controllers/ProfileController";
+import { UserController } from "./controllers/UserController";
 
 export const routes = Router();
 
@@ -9,3 +10,8 @@ export const routes = Router();
 routes.post('/profiles', new ProfileController().create);
 routes.get('/profiles', new ProfileController().findAll);
 routes.get('/profiles/:id', new ProfileController().findOne);
+
+/**
+ * users routes
+ */
+routes.post('/users', new UserController().create);
