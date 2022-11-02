@@ -28,4 +28,19 @@ export class FindUserService {
     return user;
   }
 
+  async userDetail(userId: string) {
+    const user = await prisma.user.findFirst({
+      where: { id: parseInt(userId) },
+      select: {
+        id: true, name: true, email: true,
+        profile: {
+          select: {
+            id: true, name: true
+          }
+        }
+      }
+    });
+    return user;
+  }
+
 }

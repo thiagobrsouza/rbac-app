@@ -21,6 +21,7 @@ routes.get('/users', isAuthenticated, new UserController().findAll);
 routes.get('/users/:id', isAuthenticated, new UserController().findOne);
 routes.patch('/users/:id', isAuthenticated, new UserController().updatePassword);
 routes.patch('/users/:id', isAuthenticated, new UserController().updateUser);
+routes.get('/me', isAuthenticated, new UserController().userDetail);
 
 /**
  *  auth route

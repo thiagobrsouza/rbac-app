@@ -24,6 +24,12 @@ export class UserController {
     return res.json(result);
   }
 
+  async userDetail(req: Request, res: Response) {
+    const userId = req.userId;
+    const user = await new FindUserService().userDetail(userId);
+    return res.json(user);
+  }
+
   async updatePassword(req: Request, res: Response) {
     const { id } = req.params;
     const { password } = req.body;
