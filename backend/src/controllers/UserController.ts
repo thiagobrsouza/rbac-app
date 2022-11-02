@@ -2,6 +2,7 @@ import { Request, Response } from "express";
 import { CreateUserService } from "../services/CreateUserService";
 import { FindUserService } from "../services/FindUserService";
 import { UpdateUserPasswordService } from "../services/UpdateUserPasswordService";
+import { UpdateUserService } from "../services/UpdateUserService";
 
 export class UserController {
 
@@ -27,6 +28,13 @@ export class UserController {
     const { id } = req.params;
     const { password } = req.body;
     const result = await new UpdateUserPasswordService().execute(+id, {password});
+    return res.json(result);
+  }
+
+  async updateUser(req: Request, res: Response) {
+    const { id } = req.params;
+    const { name, email, profileId } = req.body;
+    const result = await new UpdateUserService().execute(+id, { name, email, profileId });
     return res.json(result);
   }
 
